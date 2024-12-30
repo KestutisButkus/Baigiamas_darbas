@@ -12,10 +12,10 @@ if response.status_code == 200:
     data = response.json()
     print(json.dumps(data, indent=4))
 
-    location = data['place']['name'stamps"][0]["feelsLikeTemperature"]  # Jaučiama temperatūra
-    wind_speed = data["forecastTim]  # Vietovė
+    location = data['place']['name']  # Vietovė
     temp_now = data["forecastTimestamps"][0]["airTemperature"]  # Dabartinė temperatūra
-    temp_feel = data["forecastTimeestamps"][0]["windSpeed"]  # Vėjo greitis
+    temp_feel = data["forecastTimestamps"][0]["feelsLikeTemperature"]  # Jaučiama temperatūra
+    wind_speed = data["forecastTimestamps"][0]["windSpeed"]  # Vėjo greitis
     wind_gust = data["forecastTimestamps"][0]["windGust"]  # Vėjo gūsiai
     wind_degree = data["forecastTimestamps"][0]["windDirection"]  # Vėjo kryptis (laipsniais)
     cloud_cover = data["forecastTimestamps"][0]["cloudCover"]  # Debesuotumas

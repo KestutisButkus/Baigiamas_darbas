@@ -1,11 +1,11 @@
 from datetime import datetime, timedelta, timezone
 import requests
 
-
+place = "žiegždriai"
 # Funkcija gauti duomenis iš API
 def gauti_duomenis():
     try:
-        url = "https://api.meteo.lt/v1/places/vilnius/forecasts/long-term"
+        url = f"https://api.meteo.lt/v1/places/{place}/forecasts/long-term"
         response = requests.get(url)
         response.raise_for_status()  # Patikrina, ar nėra HTTP klaidų
         return response.json()
@@ -18,6 +18,7 @@ def gauti_duomenis():
 def grupuoti_dienos_nakties_prognozes(data):
     rytojaus_data = (datetime.now(timezone.utc) + timedelta(days=1)).strftime('%Y-%m-%d')
     diena, naktis = [], []
+    location = data['place']['name']
     for forecast in data.get("forecastTimestamps", []):
         laikas = forecast["forecastTimeUtc"]
         temperatura = forecast["airTemperature"]
@@ -26,9 +27,9 @@ def grupuoti_dienos_nakties_prognozes(data):
 
         if laikas.startswith(rytojaus_data):
             if 8 <= valanda < 20:
-                diena.append((laikas, temperatura, busena))
+                diena.append((location, laikas, temperatura, busena))
             else:
-                naktis.append((laikas, temperatura, busena))
+                naktis.append((location, laikas, temperatura, busena))
 
     return diena, naktis
 
