@@ -1,62 +1,34 @@
-## Savo programos kūrimas (kurso pabaigai)
+# Apie:
 
-Tikslas – savarankiškai sukurti norimą programą, kuri būtų visiems pristatyta paskutinėje šio kurso paskaitoje.
+Ši programa naudoja `tkinter` biblioteką, kad sukurtų grafinį langą, kuris atvaizduoja orų informaciją, NordPool elektros kainas ir naujienas iš įvairių šaltinių.
 
-### Konsultacijos
+## Diegimo instrukcijos
 
-Galima konsultuotis su mokytoju, kurso kolegomis, internetu.
+1. Įdiekite reikalingas bibliotekas:
+   ```sh
+   pip install -r requirements.txt 
+2. Sukurkite config.py failą šakniniame programos kataloge, kuriame bus jūsų API KEY, lokacija ir kiti parametrai:
+   ```sh
+    key = "api_key"  # Enter your API KEY
+    location = "city"  # Enter city    
+3. Paleiskite programą:
+    ```sh
+   python main.py
+## Naudojimo instrukcijos
+Programa atvaizduoja šią informaciją:
 
-### Medžiaga
+Orai: Rodo orų informaciją.
 
-Programoje naudoti šiame kurse išmoktą medžiagą. Gali būti panaudota ir tai, ko nesimokėme.
+NordPool elektros kainos: Rodo NordPool elektros kainų informaciją.
 
-### Programos sudėtingumas
+Naujienos: Rodo naujienas iš skirtingų šaltinių (15min, LRT, Delfi, Verslo žinios) iš news.py.
 
-Pasirinkite pagal savo galimybes. Tikrai nereikia pasirinkti sudėtingiausios, bet ir kad būtų pakankamas iššūkis. Jei programa paprastesnė, būtų gerai, kad sukurtumėte jai grafinę sąsają, papildomų funkcijų.
+### Ši programa naudoja šias papildomas bibliotekas:
 
-Svarbiausia – kad programa būtų įdomi ir aktuali jums :)
+1. **beautifulsoup4==4.12.3**
+   - HTML ir XML analizės biblioteka, naudojama duomenų ištraukimo iš tinklalapių, pvz., naujienų šaltinių (pvz., `news.py`).
+2. **pillow==11.0.0**
+    - Išplėstinė vaizdų apdorojimo biblioteka, naudojama orų ir vėjo krypties ikonų perdirbimui ir atvaizdavimui.
 
-## Idėjos
-
-- Katalogai (asmenų, darbuotojų, paskaitų ir t.t.). Duomenų saugojimui galima panaudoti DB, failus arba Pickle. Įgyvendinti CRUD (create, read, update, delete) – programa turėtų leisti įvesti, nuskaityti, pakeisti, ištrinti įrašus apie objektus.
-- Darbas su failais. Įrašyti pasirinktą informaciją į failus, ją nuskaityti, analizuoti tekstinius failus ir t.t.
-- Kalkuliatorius.
-- Arabiškų skaičių konvertavimas į romėniškus ir atvirkščiai.
-- Boulingo taškų skaičiuoklė.
-- Saugių slaptažodžių generatorius.
-- Klausimynas.
-- Testas.
-- Žaidimas: Kryžiukai/nuliukai arba Akmuo, lapas, žirklės.
-- Bet kokia kita norima programa.
-
-## Galima panaudoti
-
-- Objektus, paveldėjimą.
-- Failus.
-- Programą sukurti keliuose failuose.
-- Papildomus importuojamus modulius.
-- Try/except.
-- Vartotojo sąsają (Tkinter ar kitą).
-- Duomenų bazes (SQLite, SQLAlchemy).
-- Unit testus.
-- Klaidų žurnalą (loginimą).
-- Kitas technologijas.
-
-Pageidautina naudoti kurse išmoktas technologijas, bet nebūtinai.
-
-## Vertinimo kriterijai
-
-- **Išbaigtumas:** Programa turi veikti, nemesti klaidų ir t.t (1 taškas).
-- **Kodo kokybė:** Kodo style guide pagal PEP8 standartą (1 taškas).
-- **Technologijų panaudojimas:** (1 taškas).
-- **GitHub:** (1 taškas).
-- **Programos pristatymas:** (2 taškai).
-- **Klausimai iš baigiamojo darbo:** (po 1 tašką).
-- **Klausimai iš Python pagrindų:** (po 1 tašką).
-
-## Klausimai pristatant programą
-
-- Kodėl pasirinkote kurti būtent šią programą?
-- Kuo naudinga ši programa?
-- Programos veikimo demonstracija.
-- Įdomiausio/sudėtingiausio kodo demonstracija.
+3. **pynordpool==0.2.3**
+    - Biblioteka, skirta NordPool elektros kainų duomenų gavimui.
